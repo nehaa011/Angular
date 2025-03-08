@@ -1,0 +1,31 @@
+<div>
+  <label for="name">Enter your name: </label>
+  <input 
+    id="name" 
+    type="text" 
+    [(ngModel)]="userName" 
+    (input)="validateUserName()" 
+    placeholder="Your Name"
+  >
+</div>
+
+<div>
+  <!-- ✅ Display Error Message If Input is Invalid -->
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+
+<!-- ✅ Display Greeting Only If Input is Valid -->
+<h1 *ngIf="!errorMessage && userName.length > 0">
+  Hello {{ userName }} from BridgeLabz!
+</h1>
+</div>
+
+<div>
+  <img 
+    [src]="imageURL" 
+    alt="photo" 
+    width="200" 
+    (click)="openBridgelabzSite()"
+  >
+</div>
+
+<router-outlet></router-outlet>
